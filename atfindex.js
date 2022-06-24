@@ -8,6 +8,8 @@
  * @date:   2017-05-30
  */
 
+import * as send from './sendtoserver';
+
 /*
     PLUGIN configuration options
 */
@@ -313,15 +315,16 @@ function calculateATF(){
     stats.runtime      = performance.now() - script_start_time;
 
     if (sendToServer && serverAddress !== '') {
-        var xhr = new XMLHttpRequest();
+        // var xhr = new XMLHttpRequest();
 
-        try {
-            xhr.open("POST", serverAddress + "/" + filename, true);
-            xhr.setRequestHeader("Content-type", "application/json");
-            xhr.send(JSON.stringify(obj));
-        } catch (e) {
-            console.error('Upload server not reachable.');
-        }
+        // try {
+        //     xhr.open("POST", serverAddress + "/" + filename, true);
+        //     xhr.setRequestHeader("Content-type", "application/json");
+        //     xhr.send(JSON.stringify(obj));
+        // } catch (e) {
+        //     console.error('Upload server not reachable.');
+        // }
+        send.send(serverAddress, filename, obj);
     }
 
     if (savePageProfile>0){

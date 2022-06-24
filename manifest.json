@@ -4,12 +4,18 @@
 	"short_name": "ATF",
 	"version": "1.40",
 	"permissions": [
+		"background",
 		"activeTab",
 		"webNavigation",
 		"debugger",
 		"storage",
 		"webRequest"
 	],
+	"background": {
+		"scripts": [
+			"sendtoserver.js"
+		]
+	},
 	"icons": {"128": "ATF128.png" },
 	"options_page": "options.html",
  	"description": "Obtain advanced web QoS metrics for pages you visit and an approximation of the above-the-fold time!", 
