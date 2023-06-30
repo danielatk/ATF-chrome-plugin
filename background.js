@@ -25,9 +25,10 @@ function sendData() {
             var xhr = new XMLHttpRequest();
 
             try {
-                xhr.open("POST", serverAddress + "/" + filename, true);
+                xhr.open("POST", serverAddress + "/" + filename, false);
                 xhr.setRequestHeader("Content-type", "application/json");
                 xhr.send(JSON.stringify(stats));
+                console.log('Data sent to collection server.');
             } catch (e) {
                 console.error('Upload server not reachable.');
             }
